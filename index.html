@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jeu de Fruits - Trouvez l'Intrus</title>
+    <meta name="description" content="Un jeu amusant où vous devez trouver le fruit différent parmi les autres">
+    <meta name="keywords" content="jeu, fruits, puzzle, trouvez l'intrus">
+    <meta property="og:title" content="Jeu de Fruits - Trouvez l'Intrus">
+    <meta property="og:description" content="Un jeu amusant où vous devez trouver le fruit différent parmi les autres">
+    <meta name="twitter:title" content="Jeu de Fruits - Trouvez l'Intrus">
+    <meta name="twitter:description" content="Un jeu amusant où vous devez trouver le fruit différent parmi les autres">
+
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+
+    <!-- Predefined Tailwind CSS, use it as needed, or update base on your -->
+    <style type="text/tailwindcss">
+    @layer theme {
+        :root {
+            --primary-color: #10b981;
+            --secondary-color: #f59e0b;
+            --accent-color: #ef4444;
+            --background-color: #f0fdf4;
+            --text-color: #065f46;
+        }
+    }
+
+    @layer base {
+        body {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            font-family: 'Inter', sans-serif;
+        }
+    }
+
+    @layer components {
+        .fruit-grid {
+            @apply grid gap-4 p-6 bg-white rounded-xl shadow-lg;
+        }
+        
+        .fruit-card {
+            @apply w-20 h-20 rounded-lg border-2 border-gray-200 flex items-center justify-center text-4xl cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-md;
+        }
+        
+        .fruit-card:hover {
+            @apply border-[var(--primary-color)];
+        }
+        
+        .correct-answer {
+            @apply bg-green-100 border-green-500;
+        }
+        
+        .wrong-answer {
+            @apply bg-red-100 border-red-500;
+        }
+        
+        .game-button {
+            @apply bg-[var(--primary-color)] text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors duration-200;
+        }
+    }
+
+    @layer utilities {
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+    }
+    </style>
+
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel" src="components/GameBoard.js"></script>
+    <script type="text/babel" src="components/ScoreBoard.js"></script>
+    <script type="text/babel" src="utils/gameLogic.js"></script>
+    <script type="text/babel" src="app.js"></script>
+</body>
+</html>
