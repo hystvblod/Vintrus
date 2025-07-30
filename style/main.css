@@ -307,7 +307,7 @@ html, body {
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     /* Ton CSS intégral, inchangé, + juste la grid achats */
     html, body {
-      background: radial-gradient(ellipse at 60% 40%, #7061e8 0%, #5db9e3 55%, #483070 100%);
+       background: radial-gradient(ellipse at 60% 40%, #8ad3e9 0%, #8ff7f7 55%, #aaf1ba 100%);
       font-family: 'Quicksand', Arial, sans-serif;
       margin: 0; padding: 0;
       min-height: 100vh;
@@ -577,102 +577,3 @@ html, body {
       text-align: center; text-shadow: 0 3px 16px #2e6ead44, 0 1px 1px #fff7;
       margin: 0;
     }
-    .param-group {
-      background: rgba(255,255,255,0.1);
-      padding: 1.2em 1.5em;
-      border-radius: 1.5em;
-      box-shadow: 0 2px 10px #0002;
-      width: 90%; max-width: 400px;
-    }
-    label { font-weight: 800; font-size: 1.1em; display: block; margin-bottom: 0.6em; }
-    .lang-select {
-      display: flex; flex-wrap: wrap; gap: 0.7em; justify-content: center; margin-top: 0.5em;
-    }
-    .lang-option {
-      display: flex; align-items: center; gap: 0.4em;
-      padding: 0.35em 0.7em; border-radius: 1em;
-      background: #e6f6ea; color: #156c31; border: none; font-weight: 700;
-      cursor: pointer; box-shadow: 0 2px 8px #a2dcd220;
-      transition: background 0.13s, transform 0.13s;
-    }
-    .lang-option.selected {
-      background: linear-gradient(90deg,#70dcff 0%,#b2ff9d 100%);
-      color: #0e4b26; transform: scale(1.05);
-    }
-    .flag { width: 22px; height: 16px; }
-    .switch {
-      display: flex; align-items: center; gap: 0.8em; margin-top: 0.7em;
-    }
-    input[type="checkbox"] {
-      width: 24px; height: 24px;
-      accent-color: #70dcff;
-    }
-    button.return-btn {
-      background: none; border: 2px dashed #b8ffdb88; color: #fff;
-      border-radius: 1.3em; padding: 0.6em 1.4em; font-size: 1em;
-      font-weight: 700; cursor: pointer; margin-top: 1em;
-    }
-    button.return-btn:hover { background: rgba(255, 255, 255, 0.1); }
-
-.top-bar {
-  width: 100%;
-  max-width: 430px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start; /* ou center selon le rendu */
-  justify-content: space-between;
-  box-sizing: border-box;
-  padding: 10px 10px 0 10px;
-  position: relative;
-  z-index: 30;
-}
-
-.center-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex: 1 1 auto;
-  min-width: 0;
-}
-.main-title {
-  font-size: 1.25em; font-weight: 900;
-  color: var(--title-color, #39ff14);
-  letter-spacing: 2px;
-  line-height: 1.1;
-  text-align: center;
-  white-space: pre-line;
-  word-break: break-word;
-  margin-bottom: 2px;
-  user-select: none;
-}
-.solde-inline {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 2px;
-}
-.vcoins, .jetons {
-  display: flex;
-  align-items: center;
-  font-weight: 700;
-  justify-content: center;
-}
-.vcoins {
-  font-size: 1.19em;
-  color: #ffd800;
-  margin-bottom: 1px;
-}
-.jetons {
-  font-size: 1.07em;
-  color: #36e7ff;
-}
-.vcoin-icon, .jeton-icon {
-  width: 27px;
-  height: 27px;
-  vertical-align: middle;
-  margin-right: 6px;
-}
