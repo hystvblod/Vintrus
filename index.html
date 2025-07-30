@@ -1,81 +1,175 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Jeu de Fruits - Trouvez l'Intrus</title>
-    <meta name="description" content="Un jeu amusant où vous devez trouver le fruit différent parmi les autres">
-    <meta name="keywords" content="jeu, fruits, puzzle, trouvez l'intrus">
-    <meta property="og:title" content="Jeu de Fruits - Trouvez l'Intrus">
-    <meta property="og:description" content="Un jeu amusant où vous devez trouver le fruit différent parmi les autres">
-    <meta name="twitter:title" content="Jeu de Fruits - Trouvez l'Intrus">
-    <meta name="twitter:description" content="Un jeu amusant où vous devez trouver le fruit différent parmi les autres">
-
-    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
-    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
-
-    <!-- Predefined Tailwind CSS, use it as needed, or update base on your -->
-    <style type="text/tailwindcss">
-    @layer theme {
-        :root {
-            --primary-color: #10b981;
-            --secondary-color: #f59e0b;
-            --accent-color: #ef4444;
-            --background-color: #f0fdf4;
-            --text-color: #065f46;
-        }
+  <meta charset="UTF-8">
+  <title data-i18n="home.title">Accueil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style/main.css" />
+  <style>
+    .top-buttons-home {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100vw;
+      max-width: 410px;
+      margin: 0 auto;
+      padding: 18px 10px 0 10px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 9;
     }
-
-    @layer base {
-        body {
-            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-            font-family: 'Inter', sans-serif;
-        }
+    .btn-icon {
+      background: #fff7;
+      border: none; border-radius: 50%;
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 1px 8px #c0e5ff33;
+      cursor: pointer;
+      transition: background 0.17s;
+      padding: 0;
     }
-
-    @layer components {
-        .fruit-grid {
-            @apply grid gap-4 p-6 bg-white rounded-xl shadow-lg;
-        }
-        
-        .fruit-card {
-            @apply w-20 h-20 rounded-lg border-2 border-gray-200 flex items-center justify-center text-4xl cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-md;
-        }
-        
-        .fruit-card:hover {
-            @apply border-[var(--primary-color)];
-        }
-        
-        .correct-answer {
-            @apply bg-green-100 border-green-500;
-        }
-        
-        .wrong-answer {
-            @apply bg-red-100 border-red-500;
-        }
-        
-        .game-button {
-            @apply bg-[var(--primary-color)] text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors duration-200;
-        }
+    .btn-icon:hover { background: #e2eeff; }
+    .btn-icon img { width: 28px; height: 28px; }
+    .container {
+      max-width: 410px; margin: 0 auto; padding: 24px 8px 0 8px;
+      display: flex; flex-direction: column; align-items: center; min-height: 85vh;
     }
-
-    @layer utilities {
-        .text-shadow {
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
+    .main-logo {
+      width: 110px; margin: 18px auto 16px auto; display: block;
+      filter: drop-shadow(0 4px 24px #c8d8ff55);
+      user-select: none;
     }
-    </style>
-
+    .menu-list {
+      width: 100%; display: flex; flex-direction: column; gap: 22px; margin-top: 10px;
+    }
+    .menu-btn {
+      width: 100%; padding: 18px 0; border: none;
+      border-radius: 16px; font-size: 1.3rem;
+      font-weight: 700; letter-spacing: 0.01em;
+      box-shadow: 0 3px 20px #d8ebff44;
+      transition: transform 0.12s, box-shadow 0.17s;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 12px;
+      background: linear-gradient(120deg, #ffe8f7 0%, #d4f8ff 70%);
+      color: #29516a;
+      position: relative;
+    }
+    .menu-btn.chill {
+      background: linear-gradient(120deg, #fbeffb 0%, #b8f3ea 100%);
+      color: #9d429d;
+    }
+    .menu-btn.defi {
+      background: linear-gradient(120deg, #c6e6fa 0%, #fbe8ef 100%);
+      color: #255b7a;
+    }
+    .menu-btn.boutique {
+      background: linear-gradient(120deg, #e0fff1 0%, #d3e7fb 100%);
+      color: #2f714a;
+    }
+    .menu-btn:active { transform: scale(0.97);}
+    .btn-label {
+      font-size: 1.18rem;
+    }
+    .info-btn {
+      font-size: 1.1rem; background: #fff7; color: #c374d6; border-radius: 100px; padding: 0 10px;
+      border: none; cursor: pointer; font-weight: 600;
+      margin-left: 4px;
+      transition: background 0.17s;
+    }
+    .info-btn:hover { background: #f3defc; color: #a464b3; }
+    .tooltip-box {
+      position: absolute; background: #fff; color: #60336a;
+      border-radius: 12px; padding: 14px 16px; font-size: 1rem;
+      box-shadow: 0 6px 28px #c2d4ee55;
+      z-index: 1000; display: none; min-width: 110px;
+      max-width: 220px;
+      word-break: break-word;
+      pointer-events: none;
+    }
+    .tooltip-box.visible { display: block;}
+    @media (max-width: 550px) {
+      .container { padding: 10px 1px;}
+      .main-logo { width: 75px;}
+      .menu-btn { font-size: 1rem; padding: 14px 0;}
+      .top-buttons-home {max-width:100vw;}
+    }
+  </style>
 </head>
 <body>
-    <div id="root"></div>
-    <script type="text/babel" src="components/GameBoard.js"></script>
-    <script type="text/babel" src="components/ScoreBoard.js"></script>
-    <script type="text/babel" src="utils/gameLogic.js"></script>
-    <script type="text/babel" src="app.js"></script>
+  <!-- TOP BAR (profil à gauche, settings à droite) -->
+  <div class="top-buttons-home">
+    <a href="profil.html" class="btn-icon" title="Profil" data-i18n="menu.profil">
+      <img src="assets/icons/user.svg" alt="Profil" />
+    </a>
+    <a href="parametres.html" class="btn-icon" title="Paramètres" data-i18n="menu.parametres">
+      <img src="assets/icons/settings.svg" alt="Paramètres" />
+    </a>
+  </div>
+  <div class="container">
+    <img class="main-logo" src="assets/logo.png" alt="Logo" draggable="false" />
+    <div class="menu-list">
+      <button class="menu-btn chill" onclick="location.href='jeu.html?mode=chill'">
+        <span class="btn-label" data-i18n="menu.chill">Mode Chill</span>
+        <span class="info-btn" tabindex="0" data-i18n="tip.chill" data-tip="Avance à ton rythme, sans chrono.">?</span>
+      </button>
+      <button class="menu-btn defi" onclick="location.href='jeu.html?mode=defi'">
+        <span class="btn-label" data-i18n="menu.defi">Mode Défi</span>
+        <span class="info-btn" tabindex="0" data-i18n="tip.defi" data-tip="Un intrus par grille, temps limité, difficulté progressive !">?</span>
+      </button>
+      <button class="menu-btn boutique" onclick="location.href='boutique.html'">
+        <span class="btn-label" data-i18n="menu.boutique">Boutique</span>
+        <span class="info-btn" tabindex="0" data-i18n="tip.boutique" data-tip="Personnalise fruits, cadres, thèmes…">?</span>
+      </button>
+    </div>
+  </div>
+  <div class="tooltip-box" id="tooltip"></div>
+  <script>
+    // Tooltip i18n clean
+    const tooltip = document.getElementById('tooltip');
+    document.querySelectorAll('.info-btn').forEach(el => {
+      el.addEventListener('click', function (e) {
+        e.stopPropagation();
+        let text = el.getAttribute('data-tip');
+        // i18n dynamique
+        if (window.i18nGet) text = window.i18nGet(el.getAttribute('data-i18n')) || text;
+        const parentBtn = el.closest('.menu-btn');
+        const rect = parentBtn.getBoundingClientRect();
+        tooltip.innerHTML = text;
+        tooltip.style.width = '';
+        tooltip.style.display = 'block';
+        const scrollTop = window.scrollY || window.pageYOffset;
+        const scrollLeft = window.scrollX || window.pageXOffset;
+        tooltip.style.top = (rect.bottom + scrollTop) + 'px';
+        tooltip.style.left = (rect.left + rect.width/2 + scrollLeft) + 'px';
+        tooltip.classList.add('visible');
+      });
+    });
+    document.addEventListener('click', () => {
+      tooltip.classList.remove('visible');
+    });
+    window.addEventListener('resize', () => {
+      tooltip.classList.remove('visible');
+    });
+
+    // Mini structure i18n (clé : valeur)
+    window.i18n = {
+      "home.title": "Accueil",
+      "menu.chill": "Mode Chill",
+      "menu.defi": "Mode Défi",
+      "menu.boutique": "Boutique",
+      "menu.profil": "Profil",
+      "menu.parametres": "Paramètres",
+      "tip.chill": "Avance à ton rythme, sans chrono.",
+      "tip.defi": "Un intrus par grille, temps limité, difficulté progressive !",
+      "tip.boutique": "Personnalise fruits, cadres, thèmes…",
+    };
+    window.i18nGet = k => window.i18n[k] || '';
+    window.i18nTranslateAll = function() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        let k = el.getAttribute('data-i18n');
+        if (window.i18n[k]) el.innerText = window.i18n[k];
+      });
+    };
+    window.i18nTranslateAll();
+  </script>
 </body>
 </html>
